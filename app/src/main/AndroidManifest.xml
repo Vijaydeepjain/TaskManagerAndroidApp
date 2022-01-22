@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskManager">
         <activity
+            android:name=".edit"
+            android:exported="true" />
+        <activity
+            android:name=".add"
+            android:exported="true" />
+        <activity
             android:name=".signin"
             android:exported="true" />
         <activity
