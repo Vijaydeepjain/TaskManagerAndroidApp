@@ -1,6 +1,9 @@
 package com.example.taskmanager;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class adapter2 extends FirebaseRecyclerAdapter<model2,adapter2.myviewholder2> {
     Context context;
@@ -27,6 +35,61 @@ public class adapter2 extends FirebaseRecyclerAdapter<model2,adapter2.myviewhold
         holder.taskname.setText(model.getName());
         holder.time.setText(model.getTime());
         holder.date.setText(model.getDate());
+
+        holder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //AppCompatActivity activity=(AppCompatActivity)view.getContext();
+                Intent i=new Intent(context,edit.class);
+                i.putExtra("taskname",model.getName());
+                i.putExtra("position",getRef(position).getKey());
+                context.startActivity(i);
+            }
+        });
+
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth mAuth=FirebaseAuth.getInstance();
+                AlertDialog.Builder builder=new AlertDialog.Builder(holder.time.getContext());
+                builder.setTitle("Delete Task");
+                builder.setMessage("Delete...?");
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FirebaseDatabase.getInstance().getReference().child(mAuth.getCurrentUser().getUid())
+                                .child("userlistdata")
+                                .child(getRef(position).getKey()).removeValue();
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                builder.show();
+            }
+        });
+
+        holder.complete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth mAuth=FirebaseAuth.getInstance();
+                FirebaseDatabase.getInstance().getReference().child(mAuth.getCurrentUser().getUid())
+                        .child("userlistdata")
+                        .child(getRef(position).getKey()).removeValue();
+                Map<String ,Object> m=new HashMap<>();
+                m.put("name",model.getName());
+                FirebaseDatabase.getInstance().getReference().child(mAuth.getCurrentUser().getUid())
+                        .child("complete")
+                        .push()
+                        .setValue(m);
+            }
+        });
     }
 
     @NonNull

@@ -38,6 +38,60 @@ Context context;
         holder.time.setText(model.getTime());
         holder.date.setText(model.getDate());
 
+        holder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //AppCompatActivity activity=(AppCompatActivity)view.getContext();
+                Intent i=new Intent(context,edit.class);
+                i.putExtra("taskname",model.getName());
+                i.putExtra("position",getRef(position).getKey());
+                context.startActivity(i);
+            }
+        });
+
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth mAuth=FirebaseAuth.getInstance();
+                AlertDialog.Builder builder=new AlertDialog.Builder(holder.time.getContext());
+                builder.setTitle("Delete Task");
+                builder.setMessage("Delete...?");
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FirebaseDatabase.getInstance().getReference().child(mAuth.getCurrentUser().getUid())
+                                .child("userlistdata")
+                                .child(getRef(position).getKey()).removeValue();
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                builder.show();
+            }
+        });
+
+        holder.complete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth mAuth=FirebaseAuth.getInstance();
+                FirebaseDatabase.getInstance().getReference().child(mAuth.getCurrentUser().getUid())
+                        .child("userlistdata")
+                        .child(getRef(position).getKey()).removeValue();
+                Map<String ,Object> m=new HashMap<>();
+                m.put("name",model.getName());
+                FirebaseDatabase.getInstance().getReference().child(mAuth.getCurrentUser().getUid())
+                        .child("complete")
+                        .push()
+                        .setValue(m);
+            }
+        });
 
     }
 

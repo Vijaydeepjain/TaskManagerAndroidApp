@@ -48,10 +48,15 @@ public class edit extends AppCompatActivity {
                 mAuth=FirebaseAuth.getInstance();
                 String taskname=taskname_update.getText().toString();
                 String time_update = timePickerupdate.getHour() + ":" + timePickerupdate.getMinute();
-
+                String date_update="";
 
                 if((datePickerupdate.getMonth()+1)<10)  {
-                    String date_update = datePickerupdate.getDayOfMonth() + "-0" + (datePickerupdate.getMonth() + 1) + "-" + datePickerupdate.getYear();
+                    if((datePickerupdate.getDayOfMonth())<10){
+                        date_update = "0"+datePickerupdate.getDayOfMonth() + "-0" + (datePickerupdate.getMonth() + 1) + "-" + datePickerupdate.getYear();
+                    }
+                    else {
+                        date_update = datePickerupdate.getDayOfMonth() + "-0" + (datePickerupdate.getMonth() + 1) + "-" + datePickerupdate.getYear();
+                    }
                     Map<String,Object> mapp=new HashMap<>();
                     mapp.put("date",date_update);
                     mapp.put("time",time_update);
@@ -75,7 +80,11 @@ public class edit extends AppCompatActivity {
                             });
                 }
                 if((datePickerupdate.getMonth()+1)>=10){
-                    String date_update = datePickerupdate.getDayOfMonth() + "-" + (datePickerupdate.getMonth() + 1) + "-" + datePickerupdate.getYear();
+                    if((datePickerupdate.getDayOfMonth())<10){
+                        date_update = "0"+datePickerupdate.getDayOfMonth() + "-0" + (datePickerupdate.getMonth() + 1) + "-" + datePickerupdate.getYear();
+                    }
+                    else
+                     date_update = datePickerupdate.getDayOfMonth() + "-0" + (datePickerupdate.getMonth() + 1) + "-" + datePickerupdate.getYear();
                     Map<String,Object>mapp=new HashMap<>();
                     mapp.put("date",date_update);
                     mapp.put("time",time_update);
