@@ -52,7 +52,7 @@ public class signin extends AppCompatActivity {
 
                                 if (task.isSuccessful()) {
                                     plogin.setVisibility(View.INVISIBLE);
-                                    Toast.makeText(getApplicationContext(),"success",Toast.LENGTH_LONG).show();
+                                   // Toast.makeText(getApplicationContext(),"success",Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(getApplicationContext(),dashboard.class);
                                     startActivity(intent);
                                     finish();

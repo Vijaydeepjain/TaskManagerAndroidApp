@@ -38,12 +38,10 @@ FirebaseRecyclerOptions optionss;
     public void onStart() {
         super.onStart();
         adapter2.startListening();
-        //adapter2.startListening();
     }
     @Override
     public void onStop() {
         super.onStop();
         adapter2.stopListening();
-        //adapter2.stopListening();
     }
 }

@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="7dp"
     tools:context=".alltask">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec_alllist"
-        android:layout_width="409dp"
-        android:layout_height="580dp"
+        android:layout_width="402dp"
+        android:layout_height="576dp"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

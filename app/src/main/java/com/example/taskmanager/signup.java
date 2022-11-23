@@ -55,9 +55,8 @@ public class signup extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     psignup.setVisibility(View.INVISIBLE);
-                                    enter_email.setText("");
-                                    enter_password.setText("");
-                                    Toast.makeText(getApplicationContext(),"success",Toast.LENGTH_LONG).show();
+
+                                   // Toast.makeText(getApplicationContext(),"success",Toast.LENGTH_LONG).show();
                                     Intent inn =new Intent(getApplicationContext(),dashboard.class);
                                     startActivity(inn);
                                 }
@@ -78,6 +77,7 @@ public class signup extends AppCompatActivity {
             public void onClick(View view) {
                 Intent ii = new Intent(getApplicationContext(),signin.class);
                 startActivity(ii);
+                finish();
             }
         });
 

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/img_1"
     tools:context=".signup">
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="133dp"
@@ -15,8 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.231"
-        app:srcCompat="@drawable/img"
-        />
+        app:srcCompat="@drawable/img" />
 
     <TextView
         android:id="@+id/textView"
@@ -67,14 +67,14 @@
         android:textColor="#ECEFEA"
         android:textColorHint="#FFFFFF"
         android:textSize="24sp"
-        app:passwordToggleEnabled="true"
-
-
         app:layout_constraintBottom_toBottomOf="parent"
+
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enter_email"
-        app:layout_constraintVertical_bias="0.177" />
+        app:layout_constraintVertical_bias="0.177"
+        app:passwordToggleEnabled="true" />
 
     <TextView
         android:id="@+id/sinuptosingin"

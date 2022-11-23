@@ -48,13 +48,23 @@ public class add extends AppCompatActivity {
         button_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String date_add;
+                String date_add="";
                 String task_add = taskname_add.getText().toString();
-                //if((datepickeradd.getMonth()+1)<10) {
-                date_add = datepickeradd.getDayOfMonth() + "-0" + (datepickeradd.getMonth() + 1) + "-" + datepickeradd.getYear();
-                //}
+                if((datepickeradd.getMonth()+1)<10) {
+                    if(datepickeradd.getDayOfMonth()<10){
+                        date_add = "0"+datepickeradd.getDayOfMonth() + "-0" + (datepickeradd.getMonth() + 1) + "-" + datepickeradd.getYear();
+                    }
+                    else
+                        date_add = datepickeradd.getDayOfMonth() + "-"+(datepickeradd.getMonth() + 1) + "-" + datepickeradd.getYear();
+
+                }
                 if ((datepickeradd.getMonth() + 1) >= 10) {
-                    date_add = datepickeradd.getDayOfMonth() + "-" + (datepickeradd.getMonth() + 1) + "-" + datepickeradd.getYear();
+                    if(datepickeradd.getDayOfMonth()<10){
+                        date_add = "0"+datepickeradd.getDayOfMonth() + "-" + (datepickeradd.getMonth() + 1) + "-" + datepickeradd.getYear();
+                    }
+                    else
+                        date_add = datepickeradd.getDayOfMonth() + "-"+(datepickeradd.getMonth() + 1) + "-" + datepickeradd.getYear();
+
                 }
                 String time_add = timePickeradd.getHour() + ":" + timePickeradd.getMinute();
                 Map<String, Object> mappp = new HashMap<>();

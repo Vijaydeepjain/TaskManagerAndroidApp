@@ -11,61 +11,52 @@
     <Button
         android:id="@+id/taskdone_dashboard"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#913737"
+        android:layout_height="47dp"
+        android:backgroundTint="#4CAE31"
+        android:gravity="center_vertical"
         android:text="TASK DONE"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.023"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/Task_dashboard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:backgroundTint="#650F0F"
-        android:text="TASK"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.318"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
         android:id="@+id/today_task_dashboard"
-        android:layout_width="203dp"
-        android:layout_height="49dp"
-        android:background="#4D03A9F4"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:backgroundTint="#A32424"
         android:foregroundGravity="center_vertical|clip_horizontal|center"
-        android:gravity="center|center_vertical"
+        android:gravity="center_vertical"
         android:text="TODAY TASK"
         android:textColor="#FFEB3B"
-        android:textSize="20sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/all_task_dashboard"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.023"
+        tools:ignore="TouchTargetSizeCheck" />
 
-    <TextView
+    <Button
         android:id="@+id/all_task_dashboard"
-        android:layout_width="202dp"
-        android:layout_height="49dp"
-        android:gravity="center|center_horizontal|center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:gravity="center_vertical"
         android:text="ALL TASK"
         android:textColor="#FFEB3B"
-        android:textSize="20sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.023"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ImageView
         android:id="@+id/add_dashboard"
